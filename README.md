@@ -1,3 +1,3 @@
-# [qqxproject.github.io](https://qqxproject.github.io)
+# [qqxproject.org](https://qqxproject.org)
 
 qqX webpages
