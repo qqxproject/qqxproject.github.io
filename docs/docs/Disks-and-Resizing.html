@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Disks, Shared Drives, ISO booting and Resizing | qqX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" name="twitter:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" property="og:url" content="https://qqxproject.org/docs/Disks-and-Resizing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="qqX -Virtual Machine Manager"><meta data-rh="true" name="keywords" content="qemu, quickemu, quickget, quickgui, virtual machine, fixes, workarounds, easy"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disks, Shared Drives, ISO booting and Resizing | qqX"><meta data-rh="true" name="description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><meta data-rh="true" property="og:description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://qqxproject.org/docs/Disks-and-Resizing"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="en"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Disks, Shared Drives, ISO booting and Resizing","item":"https://qqxproject.org/docs/Disks-and-Resizing"}]}</script><link rel="stylesheet" href="/assets/css/styles.7b869b1f.css">
-<script src="/assets/js/runtime~main.36395134.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.646d5750.js" defer="defer"></script>
 <script src="/assets/js/main.f1bbdeb0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -15,7 +15,11 @@
 <p>qqX will automatically run disk health checks in the background and alert you if there are problems.</p>
 <p><img decoding="async" loading="lazy" src="https://github.com/qqxproject/qqX/assets/3956806/7edf972c-3c18-4f33-8096-2c1cbc5ba4f5" alt="disk error alert crop" class="img_ev3q"></p>
 <p>You are also able to <em>mount and view qcow2 virtual machine drives</em> using the host&#x27;s file manager</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"> [qf] | [qqf]  open a qcow2 drive in file manager   [f]  open VM folder</span><br></span></code></pre></div></div>
+<p>Click here to <a href="https://qqxproject-org.translate.goog/docs/Translation/Disk-Management-menus?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer">Google Auto-Translate these Screenshots</a></p>
 <p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/91cc82cd-1d89-4824-a7be-b9466bef7a81" alt="qqX-qcow2-mount-in-filemanager" class="img_ev3q"></p>
+<p>Right click to VIEW INSIDE any VM disk</p>
+<p><img decoding="async" loading="lazy" alt="view-inside-qcow2-VM-in-filemanager" src="/assets/images/qf-target-boot-2-86c235a9dab27ab0e445a5bc9955dea5.jpg" width="1280" height="868" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="shared-and-second-drives">SHARED and SECOND DRIVES<a href="#shared-and-second-drives" class="hash-link" aria-label="Direct link to SHARED and SECOND DRIVES" title="Direct link to SHARED and SECOND DRIVES">​</a></h2>
 <p>The standard Quickemu shared drive method normally works with the folder <code>$HOME/Public</code></p>
 <ul>
@@ -23,7 +27,7 @@
 <p>This has a neat desktop to desktop copy/paste feature for text and files</p>
 </li>
 <li>
-<p>Allows a generally easy bi-directional access to the <code>Public</code> folder and when the guest is live</p>
+<p>Allows a live and generally easy bi-directional access to the <code>Public</code> folder</p>
 </li>
 </ul>
 <p>BUT</p>
@@ -35,7 +39,7 @@
 <li>Windows guests will need the SPICE <a href="https://www.spice-space.org/download.html" target="_blank" rel="noopener noreferrer">guest tools</a> to be installed in the Windows VM</li>
 </ul>
 <hr>
-<p>To improve usage of SDL, qqX takes things a stage further and allows you to create a another Shared Drive:</p>
+<p>To improve usage of SDL, qqX takes things a stage further and allows you to create another type of Shared Drive:</p>
 <ul>
 <li>Open the [u] Utils menu:</li>
 </ul>
@@ -54,20 +58,30 @@
 <p>Copy and paste should become supported as <a href="/docs/FAQs-and-Help#sdl-vs-spicy">SDL 3</a> works its way through into the display systems ...</p>
 </li>
 </ul>
-<p>Second Drives will function and are installed in much the same way but are mounted in a one-off basis via the .conf file.</p>
+<p>SECOND DRIVES are installed in much the same way.</p>
+<p>These are focused at individual distros, so qqX will generate auto-mounting via the .conf file.</p>
 <ul>
-<li>A Second drive is a quick way to expand an individual VM&#x27;s storage.</li>
+<li>
+<p>A Second drive is a quick way to expand an individual VM&#x27;s storage.</p>
+</li>
+<li>
+<p>The .conf file entry may copied to other distros, to extend further sharing capabilities.</p>
+</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="partioning-and-formatting">Partioning and formatting<a href="#partioning-and-formatting" class="hash-link" aria-label="Direct link to Partioning and formatting" title="Direct link to Partioning and formatting">​</a></h3>
 <p>Just like any new hard drive or disk, and just like when a distro is installed, we need to initialize things.</p>
 <p>This should be carried out INSIDE a virtual machine or from a <a href="/docs/Disks-and-Resizing#booting-from-isos">boot ISO.</a></p>
 <ul>
-<li>Use Gparted, Gnome Disks, or similar. You will to install a file table and will need to create and format at least one partition.</li>
+<li>Use Gparted, Gnome Disks, or similar</li>
 </ul>
-<p>If you will be installing, of have installed WINDOWS, the drive should be set as GPT &amp; formatted as NTFS.</p>
+<p>You will need to install a partion table and will need to create and format at least one partition.</p>
+<ul>
+<li>To create the partition table using Gparted, select &#x27;Devices&#x27; from the top menu. Normally select GPT.</li>
+</ul>
+<p>For WINDOWS VMs, the drive should be created as GPT and formatted as NTFS.</p>
 <ul>
 <li>
-<p>Set up NTFS drives using a Linux OS and gparted but optimize (defrag) the disk using Windows</p>
+<p>Set up NTFS drives using a Linux OS and Gparted but optimize (defrag) the disk using Windows</p>
 </li>
 <li>
 <p>See resize notes for mounting workarounds</p>
