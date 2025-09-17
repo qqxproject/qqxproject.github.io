@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Disks, Shared Drives, ISO booting and Resizing | qqX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" name="twitter:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" property="og:url" content="https://qqxproject.org/docs/Disks-and-Resizing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="qqX -Virtual Machine Manager"><meta data-rh="true" name="keywords" content="qemu, quickemu, quickget, quickgui, virtual machine, fixes, workarounds, easy"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disks, Shared Drives, ISO booting and Resizing | qqX"><meta data-rh="true" name="description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><meta data-rh="true" property="og:description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://qqxproject.org/docs/Disks-and-Resizing"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="en"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Disks, Shared Drives, ISO booting and Resizing","item":"https://qqxproject.org/docs/Disks-and-Resizing"}]}</script><link rel="stylesheet" href="/assets/css/styles.7b869b1f.css">
-<script src="/assets/js/runtime~main.8457d943.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.6ee3846f.js" defer="defer"></script>
 <script src="/assets/js/main.abcd85ca.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -68,6 +68,9 @@
 <p>The .conf file entry may be copied to other distros, to extend further sharing capabilities.</p>
 </li>
 </ul>
+<p>BETWEEN DRIVE DATA TRANSFER</p>
+<p>Either: Use the <a href="/docs/Disks-and-Resizing#everyday-tools">QF</a> function to mount drives in a file manager, followed by simple copy and paste</p>
+<p>Or: Start one of the distros, or specific distro, in Spice mode, and do similar</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="partioning-and-formatting">Partioning and formatting<a href="#partioning-and-formatting" class="hash-link" aria-label="Direct link to Partioning and formatting" title="Direct link to Partioning and formatting">​</a></h3>
 <p>Just like any new hard drive or disk, and just like when a distro is installed, we need to initialize things.</p>
 <p>This should be carried out INSIDE a virtual machine or from a <a href="/docs/Disks-and-Resizing#booting-from-isos">boot ISO.</a></p>
@@ -108,7 +111,7 @@ Development tests with Mojave show both a Shared NTFS and a Second APFS to be wo
 <p>Use the [disk] option to resize. Stage by stage help will be given.</p>
 <ul>
 <li>
-<p>See this <a href="/docs/Translation/Disk-Management-menus#disk-tidying-and-repair">link to the disk resize</a> translation help screens, and others.</p>
+<p>See this link to the disk resize <a href="/docs/Translation/Disk-Management-menus#disk-tidying-and-repair">translation help screens</a>, and others.</p>
 </li>
 <li>
 <p>Second drives should be followed up by adjustments using Gparted from inside the Linux VM.</p>
