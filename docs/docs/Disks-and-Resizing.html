@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.1">
 <title data-rh="true">Disks, Shared Drives, ISO booting and Resizing | qqX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" name="twitter:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" property="og:url" content="https://qqxproject.org/docs/Disks-and-Resizing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="qqX -Virtual Machine Manager"><meta data-rh="true" name="keywords" content="qemu, quickemu, quickget, quickgui, virtual machine, fixes, workarounds, easy"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disks, Shared Drives, ISO booting and Resizing | qqX"><meta data-rh="true" name="description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><meta data-rh="true" property="og:description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://qqxproject.org/docs/Disks-and-Resizing"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="en"><link data-rh="true" rel="alternate" href="https://qqxproject.org/docs/Disks-and-Resizing" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Disks, Shared Drives, ISO booting and Resizing","item":"https://qqxproject.org/docs/Disks-and-Resizing"}]}</script><link rel="stylesheet" href="/assets/css/styles.f395543f.css">
-<script src="/assets/js/runtime~main.16866086.js" defer="defer"></script>
-<script src="/assets/js/main.1eb92268.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.41e14481.js" defer="defer"></script>
+<script src="/assets/js/main.91a8b6bb.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -84,13 +84,40 @@
 <p>BETWEEN DRIVE DATA TRANSFER</p>
 <p>Either: Use the <a href="/docs/Disks-and-Resizing#everyday-tools">QF</a> function to mount drives in a file manager, followed by simple copy and paste</p>
 <p>Or: Start one of the distros, or specific distro, in Spice mode, and do similar</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="partioning-and-formatting">Partioning and formatting<a href="#partioning-and-formatting" class="hash-link" aria-label="Direct link to Partioning and formatting" title="Direct link to Partioning and formatting" translate="no">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resizing">RESIZING<a href="#resizing" class="hash-link" aria-label="Direct link to RESIZING" title="Direct link to RESIZING" translate="no">​</a></h2>
+<p>Ideally the Virtual Machine should have been allocated a generous size from the outset. But things aren&#x27;t always that way ...</p>
+<p><img decoding="async" loading="lazy" alt="disk-size-analysis-and-snapshot-management" src="/assets/images/disk-size-analysis-and-snapshot-management-e633e1113daaab06454b0adb8cf118bb.jpg" width="952" height="848" class="img_ev3q"></p>
+<p>Select the VM in the normal way and open the Utils menu [u]</p>
+<p>Use the [disk] option to resize. Stage by stage help will be given.</p>
+<ul>
+<li>
+<p>See this link to the disk resize <a href="/docs/Translation/Disk-Management-menus#disk-tidying-and-repair">translation help screens</a>, and others.</p>
+</li>
+<li>
+<p>To mount Second drives, followed up by adjustments using Gparted from INSIDE the Linux VM.</p>
+</li>
+</ul>
+<p>Gparted will auto-detect the change in envelope size and auto offer to &#x27;fix&#x27; things.  KDE partition manager may not do this and will need the partition deleting in order to reach the new envelope size. This software is not always installed and may need to be added.</p>
+<ul>
+<li>
+<p>A workaround for KDE distros can be to copy the disks to a Gnome based distro VM folder, then mount them as Gnome second drives. Even a simple Live ISO is sufficient, as long as the .conf has the Drive added to it.</p>
+</li>
+<li>
+<p>This workaround should function with main drives too, including Windows.</p>
+</li>
+<li>
+<p>Or not. Sometimes only Windows will fix NTFS, even if Gparted has already done the main lifting. Windows has &#x27;Check and repair&#x27; plus &#x27;Defrag&#x27; and Trim functions that can fix things sometimes where others can&#x27;t.</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/4a338f4b-25d7-488e-9f69-10410012dcfb" alt="shared-ntfs-checked-defragged-windows" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="partioning-and-formatting">Partioning and formatting<a href="#partioning-and-formatting" class="hash-link" aria-label="Direct link to Partioning and formatting" title="Direct link to Partioning and formatting" translate="no">​</a></h2>
 <p>For new disks, just like any new hard drive or disk, and just like when a distro is installed, we need to initialize things.</p>
 <ul>
 <li>If not present, you will need to install a partion table and will need to create and format at least one partition.</li>
 </ul>
 <p>Older disks may already have been initialized.</p>
-<p>Work on NON-bootable partions may be carried out from inside a virtual machine. Otherwise you will need to boot from an independent <a href="/docs/Disks-and-Resizing#booting-from-isos">boot ISO.</a></p>
+<p>Work on NON-bootable partions may be carried out from INSIDE a virtual machine, which makes mounting of drives easy.</p>
+<p>Otherwise you will need to boot from an independent <a href="/docs/Disks-and-Resizing#booting-from-isos">boot ISO.</a></p>
 <ul>
 <li>
 <p>Use Gparted, Gnome Disks, or similar</p>
@@ -122,32 +149,6 @@ Development tests with Mojave show both a Shared NTFS and a Second APFS to be wo
 </li>
 </ul>
 <p>The Shared Drive will always load as &#x27;virtio-blk-pci&#x27;</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resizing">RESIZING<a href="#resizing" class="hash-link" aria-label="Direct link to RESIZING" title="Direct link to RESIZING" translate="no">​</a></h2>
-<p>Ideally the Virtual Machine should have been allocated a generous size from the outset. But things aren&#x27;t always that way ...</p>
-<p><img decoding="async" loading="lazy" alt="disk-size-analysis-and-snapshot-management" src="/assets/images/disk-size-analysis-and-snapshot-management-e633e1113daaab06454b0adb8cf118bb.jpg" width="952" height="848" class="img_ev3q"></p>
-<p>Select the VM in the normal way and open the Utils menu [u]</p>
-<p>Use the [disk] option to resize. Stage by stage help will be given.</p>
-<ul>
-<li>
-<p>See this link to the disk resize <a href="/docs/Translation/Disk-Management-menus#disk-tidying-and-repair">translation help screens</a>, and others.</p>
-</li>
-<li>
-<p>Second drives should be followed up by adjustments using Gparted from inside the Linux VM.</p>
-</li>
-</ul>
-<p>Gparted will auto-detect the change in envelope size and auto offer to &#x27;fix&#x27; things.  KDE partition manager may not do this and will need the partition deleting in order to reach the new envelope size. This software is not always installed and may need to be added.</p>
-<ul>
-<li>
-<p>A workaround for KDE distros can be to copy the disks to a Gnome based distro VM folder, then mount them as Gnome second drives. Even a simple Live ISO is sufficient, as long as the .conf has the Drive added to it.</p>
-</li>
-<li>
-<p>This workaround should function with main drives too, including Windows.</p>
-</li>
-<li>
-<p>Or not. Sometimes only Windows will fix NTFS, even if Gparted has already done the main lifting. Windows has &#x27;Check and repair&#x27; plus &#x27;Defrag&#x27; and Trim functions that can fix things sometimes where others can&#x27;t.</p>
-</li>
-</ul>
-<p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/4a338f4b-25d7-488e-9f69-10410012dcfb" alt="shared-ntfs-checked-defragged-windows" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="booting-from-isos">BOOTING from ISO&#x27;s<a href="#booting-from-isos" class="hash-link" aria-label="Direct link to BOOTING from ISO&#x27;s" title="Direct link to BOOTING from ISO&#x27;s" translate="no">​</a></h2>
 <ul>
 <li>
@@ -166,7 +167,7 @@ Development tests with Mojave show both a Shared NTFS and a Second APFS to be wo
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">sudo chown $USER:$USER &quot;mounted-drive-name&quot;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">chmod 775 &quot;mounted-drive-name&quot;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
 <p>Gnome Disks has a neat &#x27;take ownership&#x27; option:</p>
 <p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/e81e6933-d5ff-48d4-9e1f-20f65407677e" alt="second-disk-take-ownership-1280" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="transferring-virtual-machines">Transferring virtual machines<a href="#transferring-virtual-machines" class="hash-link" aria-label="Direct link to Transferring virtual machines" title="Direct link to Transferring virtual machines" translate="no">​</a></h3>
-<p>A method of converting VMs from or to lib-virt based environments, such as Gnome Boxes or Virt-Manager, is still a work in progress which is hoped to be resolved.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Snapshots"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Snapshots and Rollbacks</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Updates"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">qqX updates</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#everyday-tools" class="table-of-contents__link toc-highlight">Everyday Tools</a></li><li><a href="#shared-and-second-drives" class="table-of-contents__link toc-highlight">SHARED and SECOND DRIVES</a><ul><li><a href="#improved-methods" class="table-of-contents__link toc-highlight">Improved methods</a></li><li><a href="#partioning-and-formatting" class="table-of-contents__link toc-highlight">Partioning and formatting</a></li></ul></li><li><a href="#resizing" class="table-of-contents__link toc-highlight">RESIZING</a></li><li><a href="#booting-from-isos" class="table-of-contents__link toc-highlight">BOOTING from ISO&#39;s</a></li><li><a href="#access" class="table-of-contents__link toc-highlight">ACCESS</a><ul><li><a href="#transferring-virtual-machines" class="table-of-contents__link toc-highlight">Transferring virtual machines</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Source Code and Downloads</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Translate</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject-org.translate.goog/?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer" class="footer__link-item">Google<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">View</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Main page</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Installation">Docs</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Guides/Windows-OS">Guides</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Advanced/Custom-Menus">Advanced Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Alex Genovese</div></div></div></footer></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transferring-virtual-machines">Transferring virtual machines<a href="#transferring-virtual-machines" class="hash-link" aria-label="Direct link to Transferring virtual machines" title="Direct link to Transferring virtual machines" translate="no">​</a></h2>
+<p>A method of converting VMs from or to lib-virt based environments, such as Gnome Boxes or Virt-Manager, is still a work in progress which is hoped to be resolved.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Snapshots"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Snapshots and Rollbacks</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Updates"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">qqX updates</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#everyday-tools" class="table-of-contents__link toc-highlight">Everyday Tools</a></li><li><a href="#shared-and-second-drives" class="table-of-contents__link toc-highlight">SHARED and SECOND DRIVES</a><ul><li><a href="#improved-methods" class="table-of-contents__link toc-highlight">Improved methods</a></li></ul></li><li><a href="#resizing" class="table-of-contents__link toc-highlight">RESIZING</a></li><li><a href="#partioning-and-formatting" class="table-of-contents__link toc-highlight">Partioning and formatting</a></li><li><a href="#booting-from-isos" class="table-of-contents__link toc-highlight">BOOTING from ISO&#39;s</a></li><li><a href="#access" class="table-of-contents__link toc-highlight">ACCESS</a></li><li><a href="#transferring-virtual-machines" class="table-of-contents__link toc-highlight">Transferring virtual machines</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Source Code and Downloads</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Translate</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject-org.translate.goog/?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer" class="footer__link-item">Google<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">View</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Main page</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Installation">Docs</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Guides/Windows-OS">Guides</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/Advanced/Custom-Menus">Advanced Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Alex Genovese</div></div></div></footer></div>
 </body>
 </html>
