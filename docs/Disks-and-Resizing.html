@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Disks-and-Resizing" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.1">
+<title data-rh="true">Disks, Shared Drives, ISO booting and Resizing | qqX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" name="twitter:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" property="og:url" content="https://qqxproject.org/Disks-and-Resizing"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="qqX -Virtual Machine Manager"><meta data-rh="true" name="keywords" content="qemu, quickemu, quickget, quickgui, virtual machine, fixes, workarounds, easy"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Disks, Shared Drives, ISO booting and Resizing | qqX"><meta data-rh="true" name="description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><meta data-rh="true" property="og:description" content="How to easily manage Quickemu type qcow2 disks and disk partitions"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://qqxproject.org/Disks-and-Resizing"><link data-rh="true" rel="alternate" href="https://qqxproject.org/Disks-and-Resizing" hreflang="en"><link data-rh="true" rel="alternate" href="https://qqxproject.org/Disks-and-Resizing" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Disks, Shared Drives, ISO booting and Resizing","item":"https://qqxproject.org/Disks-and-Resizing"}]}</script><link rel="stylesheet" href="/assets/css/styles.430bb898.css">
+<script src="/assets/js/runtime~main.e4c58d36.js" defer="defer"></script>
+<script src="/assets/js/main.4ea114b9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/favicon.ico"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/favicon.ico" alt="qqX Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/favicon.ico" alt="qqX Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">qqX Virtual Machine Manager</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/">Docs</a><a class="navbar__item navbar__link" href="/Translation">Translation</a><a class="navbar__item navbar__link" href="/Guides/Windows-OS">Guides for Windows and Mac</a><a class="navbar__item navbar__link" href="/Advanced/Custom-Menus">Advanced Docs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://qqxproject-org.translate.goog/?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Google Translate<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/qqxproject/qqX" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Source Code and Downloads<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/"><span title="qqX" class="linkLabel_WmDU">qqX</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Installation"><span title="Installation" class="linkLabel_WmDU">Installation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/Translation"><span title="Help with Translation" class="categoryLinkLabel_W154">Help with Translation</span></a><button aria-label="Expand sidebar category &#x27;Help with Translation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Release-Notes"><span title="Release Notes" class="linkLabel_WmDU">Release Notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/About"><span title="About" class="linkLabel_WmDU">About</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/FAQs-and-Help"><span title="FAQs-and-Help" class="linkLabel_WmDU">FAQs-and-Help</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Command-line-and-Mouse"><span title="Command-line-and-Mouse" class="linkLabel_WmDU">Command-line-and-Mouse</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/FreeBird"><span title="FreeBird, Rolling Releases and Creative Differences" class="linkLabel_WmDU">FreeBird, Rolling Releases and Creative Differences</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Folders-and-Organisation"><span title="Folders-and-Organisation" class="linkLabel_WmDU">Folders-and-Organisation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Snapshots"><span title="Snapshots and Rollbacks" class="linkLabel_WmDU">Snapshots and Rollbacks</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Disks-and-Resizing"><span title="Disks, Shared Drives, ISO booting and Resizing" class="linkLabel_WmDU">Disks, Shared Drives, ISO booting and Resizing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Updates"><span title="qqX updates" class="linkLabel_WmDU">qqX updates</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Advanced/Custom-Menus"><span title="Advanced" class="categoryLinkLabel_W154">Advanced</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Guides/Windows-OS"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Disks, Shared Drives, ISO booting and Resizing</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Disks, Shared Drives, ISO booting and Resizing</h1></header><h3 class="anchor anchorWithStickyNavbar_LWe7" id="everyday-tools">Everyday Tools<a href="#everyday-tools" class="hash-link" aria-label="Direct link to Everyday Tools" title="Direct link to Everyday Tools" translate="no">​</a></h3>
+<p>qqX will automatically run disk health checks in the background and alert you if there are problems.</p>
+<p><img decoding="async" loading="lazy" src="https://github.com/qqxproject/qqX/assets/3956806/7edf972c-3c18-4f33-8096-2c1cbc5ba4f5" alt="disk error alert crop" class="img_ev3q"></p>
+<p>You are also able to <em>mount and view qcow2 virtual machine drives</em> using the host&#x27;s file manager</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"> [qf] | [qqf]  open a qcow2 drive in file manager   [f]  open VM folder</span><br></span></code></pre></div></div>
+<p>Click here to <a href="https://qqxproject-org.translate.goog/docs/Translation/Disk-Management-menus?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer">Google Auto-Translate these Screenshots</a></p>
+<p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/91cc82cd-1d89-4824-a7be-b9466bef7a81" alt="qqX-qcow2-mount-in-filemanager" class="img_ev3q"></p>
+<p>Right click to VIEW INSIDE any VM disk</p>
+<p><img decoding="async" loading="lazy" alt="view-inside-qcow2-VM-in-filemanager" src="/assets/images/qf-target-boot-2-86c235a9dab27ab0e445a5bc9955dea5.jpg" width="1280" height="868" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="shared-and-second-drives">SHARED and SECOND DRIVES<a href="#shared-and-second-drives" class="hash-link" aria-label="Direct link to SHARED and SECOND DRIVES" title="Direct link to SHARED and SECOND DRIVES" translate="no">​</a></h2>
+<p>The standard Quickemu shared drive method normally connects with the folder <code>$HOME/Public</code></p>
+<ul>
+<li>
+<p>This has a neat desktop to desktop copy/paste feature for text and files</p>
+</li>
+<li>
+<p>When it works, it allows a live and generally easy bi-directional access to the Public folder</p>
+</li>
+</ul>
+<p>BUT</p>
+<ul>
+<li><em>It won&#x27;t work with SDL, which is much faster and crisper,</em> it only works with Spice and it can be a bit unreliable.</li>
+</ul>
+<hr>
+<p>For Windows guests:</p>
+<p>For qqX 1.12 and 1.13, the basic tools should normally have been installed via the automated <code>unattended.iso</code></p>
+<ul>
+<li>
+<p>MAKE SURE to have followed up the installation by running <code>virtio-win-gt-x64.msi</code> which is on the virtio ISO</p>
+</li>
+<li>
+<p>The additional <a href="https://www.spice-space.org" target="_blank" rel="noopener noreferrer">SPICE</a> guest tools are OUT OF DATE and should NOT be used</p>
+</li>
+<li>
+<p>Use the additional Virtio guest tools, which are on the ISO</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="virtio-win-drivers-and-agents" src="/assets/images/virtio-win-drivers-and-agents-4d91481141d0ebd04738a9dc75fc7c80.png" width="575" height="418" class="img_ev3q"></p>
+<p>From qqX 1.14 onwards, the needed drivers and agents will ALL auto-install and everthing should already be in place</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="improved-methods">Improved methods<a href="#improved-methods" class="hash-link" aria-label="Direct link to Improved methods" title="Direct link to Improved methods" translate="no">​</a></h3>
+<p>To improve usage of SDL, qqX takes things a stage further and allows you to create another type of Shared Drive:</p>
+<ul>
+<li>Open the [u] Utils menu:</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">[2c]  create [2d] delete a second virtual hard-drive   [3c] create [3m] unmount shared drive (guest boot)</span><br></span></code></pre></div></div>
+<ul>
+<li>
+<p>Works in all display modes. May be used by all the VM&#x27;s and may be accessed by the host.</p>
+</li>
+<li>
+<p>qqX will normally auto-install the shared drive parameters for you, in the general settings file, and will enable auto-mount.</p>
+</li>
+<li>
+<p>Stage by stage help is given on screen but this link to the <a href="/Translation/Disk-Management-menus#creating-a-shared-or-extra-drive">translation shared drive help screens</a> may assist.</p>
+</li>
+<li>
+<p>Copy and paste should become supported as <a href="/FAQs-and-Help#sdl-vs-spicy">SDL 3</a> works its way through into the display systems ...</p>
+</li>
+</ul>
+<p>SECOND DRIVES are installed in much the same way.</p>
+<p>These are focused at individual distros, so qqX will generate auto-mounting via the .conf file.</p>
+<ul>
+<li>
+<p>A Second drive is a quick way to expand an individual VM&#x27;s storage.</p>
+</li>
+<li>
+<p>The .conf file entry may be copied to other distros, to extend further sharing capabilities.</p>
+</li>
+</ul>
+<p>BETWEEN DRIVE DATA TRANSFER</p>
+<p>Either: Use the <a href="/Disks-and-Resizing#everyday-tools">QF</a> function to mount drives in a file manager, followed by simple copy and paste</p>
+<p>Or: Start one of the distros, or specific distro, in Spice mode, and do similar</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resizing">RESIZING<a href="#resizing" class="hash-link" aria-label="Direct link to RESIZING" title="Direct link to RESIZING" translate="no">​</a></h2>
+<p>Ideally the Virtual Machine should have been allocated a generous size from the outset. But things aren&#x27;t always that way ...</p>
+<p><img decoding="async" loading="lazy" alt="disk-size-analysis-and-snapshot-management" src="/assets/images/disk-size-analysis-and-snapshot-management-e633e1113daaab06454b0adb8cf118bb.jpg" width="952" height="848" class="img_ev3q"></p>
+<p>Select the VM in the normal way and open the Utils menu [u]</p>
+<p>Use the [disk] option to resize. Stage by stage help will be given.</p>
+<ul>
+<li>
+<p>See this link to the disk resize <a href="/Translation/Disk-Management-menus#disk-tidying-and-repair">translation help screens</a>, and others.</p>
+</li>
+<li>
+<p>To mount Second drives, followed up by adjustments using Gparted from INSIDE the Linux VM.</p>
+</li>
+</ul>
+<p>Gparted will auto-detect the change in envelope size and auto offer to &#x27;fix&#x27; things.  KDE partition manager may not do this and will need the partition deleting in order to reach the new envelope size. This software is not always installed and may need to be added.</p>
+<ul>
+<li>
+<p>A workaround for KDE distros can be to copy the disks to a Gnome based distro VM folder, then mount them as Gnome second drives. Even a simple Live ISO is sufficient, as long as the .conf has the Drive added to it.</p>
+</li>
+<li>
+<p>This workaround should function with main drives too, including Windows.</p>
+</li>
+<li>
+<p>Or not. Sometimes only Windows will fix NTFS, even if Gparted has already done the main lifting. Windows has &#x27;Check and repair&#x27; plus &#x27;Defrag&#x27; and Trim functions that can fix things sometimes where others can&#x27;t.</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/4a338f4b-25d7-488e-9f69-10410012dcfb" alt="shared-ntfs-checked-defragged-windows" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="partioning-and-formatting">Partioning and formatting<a href="#partioning-and-formatting" class="hash-link" aria-label="Direct link to Partioning and formatting" title="Direct link to Partioning and formatting" translate="no">​</a></h2>
+<p>For new disks, just like any new hard drive or disk, and just like when a distro is installed, we need to initialize things.</p>
+<ul>
+<li>If not present, you will need to install a partion table and will need to create and format at least one partition.</li>
+</ul>
+<p>Older disks may already have been initialized.</p>
+<p>Work on NON-bootable partions may be carried out from INSIDE a virtual machine, which makes mounting of drives easy.</p>
+<p>Otherwise you will need to boot from an independent <a href="/Disks-and-Resizing#booting-from-isos">boot ISO.</a></p>
+<ul>
+<li>
+<p>Use Gparted, Gnome Disks, or similar</p>
+</li>
+<li>
+<p>To create the partition table using Gparted, select &#x27;Devices&#x27; from the top menu. Normally select GPT.</p>
+</li>
+</ul>
+<p>For WINDOWS VMs, the drive should be created as GPT and formatted as NTFS.</p>
+<ul>
+<li>
+<p>Set up NTFS drives using a Linux OS and Gparted but optimize (defrag) the disk using Windows</p>
+</li>
+<li>
+<p>See resize notes for mounting workarounds</p>
+</li>
+</ul>
+<p>MAC OS, older than and including 10.13 Mojave 2018 <em>might</em> need a flag IN THE .CONF FILE to stop possible drive conflicts.</p>
+<ul>
+<li>
+<p>See <a href="https://en.wikipedia.org/wiki/MacOS_version_history" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/MacOS_version_history</a></p>
+</li>
+<li>
+<p>Quickemu code has the following MacOs note: &quot;VirtIO Block Media doesn&#x27;t work in High Sierra (at all) or the Mojave (Recovery Image)&quot;
+Development tests with Mojave show both a Shared NTFS and a Second APFS to be working.</p>
+</li>
+<li>
+<p>Thus, SET MacLegacyDrive as =&quot;true&quot; to load Second Drive (&amp; not Shared) as &#x27;ide-hd&#x27; instead of &#x27;virtio-blk-pci&#x27;</p>
+</li>
+</ul>
+<p>The Shared Drive will always load as &#x27;virtio-blk-pci&#x27;</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="booting-from-isos">BOOTING from ISO&#x27;s<a href="#booting-from-isos" class="hash-link" aria-label="Direct link to BOOTING from ISO&#x27;s" title="Direct link to BOOTING from ISO&#x27;s" translate="no">​</a></h2>
+<ul>
+<li>
+<p>An in-menu ISO boot is now possible from version 1.9.03</p>
+</li>
+<li>
+<p>And a space saving shared Boot ISO option is now possible from 1.11.05 onwards</p>
+</li>
+<li>
+<p>See the [iso] utility from the main menu.</p>
+</li>
+</ul>
+<p>By pressing the &#x27;esc&#x27; key during initial boot, you can access the Tiano boot manager and boot from any &#x27;live boot&#x27; ISO, such as the one from <a href="https://gparted.org/download.php" target="_blank" rel="noopener noreferrer">https://gparted.org/download.php</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="access">ACCESS<a href="#access" class="hash-link" aria-label="Direct link to ACCESS" title="Direct link to ACCESS" translate="no">​</a></h2>
+<p>If your drives only have <code>root</code> access, the following commands can help give general user permissions:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">sudo chown $USER:$USER &quot;mounted-drive-name&quot;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">chmod 775 &quot;mounted-drive-name&quot;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
+<p>Gnome Disks has a neat &#x27;take ownership&#x27; option:</p>
+<p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/e81e6933-d5ff-48d4-9e1f-20f65407677e" alt="second-disk-take-ownership-1280" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transferring-virtual-machines">Transferring virtual machines<a href="#transferring-virtual-machines" class="hash-link" aria-label="Direct link to Transferring virtual machines" title="Direct link to Transferring virtual machines" translate="no">​</a></h2>
+<p>A method of converting VMs from or to lib-virt based environments, such as Gnome Boxes or Virt-Manager, is still a work in progress which is hoped to be resolved.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Snapshots"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Snapshots and Rollbacks</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Updates"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">qqX updates</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#everyday-tools" class="table-of-contents__link toc-highlight">Everyday Tools</a></li><li><a href="#shared-and-second-drives" class="table-of-contents__link toc-highlight">SHARED and SECOND DRIVES</a><ul><li><a href="#improved-methods" class="table-of-contents__link toc-highlight">Improved methods</a></li></ul></li><li><a href="#resizing" class="table-of-contents__link toc-highlight">RESIZING</a></li><li><a href="#partioning-and-formatting" class="table-of-contents__link toc-highlight">Partioning and formatting</a></li><li><a href="#booting-from-isos" class="table-of-contents__link toc-highlight">BOOTING from ISO&#39;s</a></li><li><a href="#access" class="table-of-contents__link toc-highlight">ACCESS</a></li><li><a href="#transferring-virtual-machines" class="table-of-contents__link toc-highlight">Transferring virtual machines</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Source Code and Downloads</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Translate</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://qqxproject-org.translate.goog/?_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp" target="_blank" rel="noopener noreferrer" class="footer__link-item">Google<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">View</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Index</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Guides/Windows-OS">Guides</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Section</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Advanced/Custom-Menus">Advanced Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Alex Genovese</div></div></div></footer></div>
+</body>
+</html>
