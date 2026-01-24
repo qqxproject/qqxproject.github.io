@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">FreeBird, Rolling Releases and Creative Differences | qqX</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" name="twitter:image" content="https://qqxproject.org/img/qqX.social.card.jpeg"><meta data-rh="true" property="og:url" content="https://qqxproject.org/FreeBird"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="qqX -Virtual Machine Manager"><meta data-rh="true" name="keywords" content="qemu, quickemu, quickget, quickgui, virtual machine, fixes, workarounds, easy"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="FreeBird, Rolling Releases and Creative Differences | qqX"><meta data-rh="true" name="description" content="qqX independence and qqX improvements over the QuickEmu and QuickGui systems"><meta data-rh="true" property="og:description" content="qqX independence and qqX improvements over the QuickEmu and QuickGui systems"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://qqxproject.org/FreeBird"><link data-rh="true" rel="alternate" href="https://qqxproject.org/FreeBird" hreflang="en"><link data-rh="true" rel="alternate" href="https://qqxproject.org/FreeBird" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FreeBird, Rolling Releases and Creative Differences","item":"https://qqxproject.org/FreeBird"}]}</script><link rel="stylesheet" href="/assets/css/styles.95257024.css">
-<script src="/assets/js/runtime~main.a9ad3811.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.5fb2c481.js" defer="defer"></script>
 <script src="/assets/js/main.c80e3b8b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 <ul>
 <li class="">qqX built-in code may be viewed here as in the <a href="https://github.com/qqxproject/quickemu" target="_blank" rel="noopener noreferrer" class="">qqX quickemu fork</a></li>
 </ul>
-<p>Quickemu has seen sporadic additions to the main code tree BUT at the start of 2026, there have been <a href="https://github.com/quickemu-project/quickemu/issues/1785" target="_blank" rel="noopener noreferrer" class="">no releases</a> since Dec 30 2024</p>
+<p>Quickemu has seen sporadic additions to the main code tree BUT at the start of 2026, there had been <a href="https://github.com/quickemu-project/quickemu/issues/1785" target="_blank" rel="noopener noreferrer" class="">no releases</a> since Dec 30 2024</p>
 <p>During 2025, qqX Mod Overlays were introduced. These sit in the built-in folders and allow easy downstream patching and fixing. At the start of 2026 they have become release numbered, to reflect their growing importance.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-of-a-qqx-fix">Example of a qqX fix<a href="#example-of-a-qqx-fix" class="hash-link" aria-label="Direct link to Example of a qqX fix" title="Direct link to Example of a qqX fix" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/ebc3eb3a-ee2a-489d-a1fe-f18a5d6c10d7" alt="nested-vms-ubuntu-running-garuda-running-manjaro" class="img_ev3q"></p>
@@ -31,6 +31,12 @@
 <li class="">nested-vms &gt; ubuntu-running-garuda-running-manjaro</li>
 </ul>
 <p>The Quickemu problem, where telescoped/nested VM grind to a halt, doesn&#x27;t happen when using the qqX builtins ....</p>
+<hr>
+<p>@ Jan 24 2026  There was an Upstream release, numbered 4.9.8, which was the first in over a year</p>
+<p>In reality this was basically a catch up exercise and there are still lots of areas in which upstream is still lagging behind.</p>
+<p>Most of the &#x27;new&#x27; release was actually a consolidation of previous commits made during the last year, so most of the commits were already included in qqX and many of areas addressed in the release were qqX fixed a long time ago ....</p>
+<p>The upstream work was somewhat hurried and errors were immediately spotted in some of the unreviewed additions that were tacked on during the early hours. But at least some work had happened and some attention had been given to the project.</p>
+<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rolling-release">Rolling release<a href="#rolling-release" class="hash-link" aria-label="Direct link to Rolling release" title="Direct link to Rolling release" translate="no">​</a></h2>
 <p>qqX features a choice of 3 easy-swap internal <em>rolling release</em> models: Leading Edge, Standard or Slow</p>
 <p>Named versions are generally as follows:</p>
